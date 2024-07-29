@@ -13,4 +13,4 @@ export default {
   shopEmail: "ashlee@stormymeadowlark.com",
   encyptionKey:
     "8025508ef7479d4e7a417f745273683944b7ebc61a38113f89bc6578b8165918",
-};
+}
