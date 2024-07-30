@@ -17,7 +17,7 @@ export const login = async (req, res) => {
     return res.status(400).json({ message: "Invalid email or password" });
   }
 
-  const token = jwt.sign({ id: user._id }, config.tokenSecret, {
+  const token = jwt.sign({ id: user._id }, config.SECRET_ACCESS_TOKEN, {
     expiresIn: rememberMe ? "7d" : user.role === "Customer" ? "9999y" : "12h",
   });
 

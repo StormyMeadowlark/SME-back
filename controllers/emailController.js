@@ -1,4 +1,6 @@
-import { sendEmailWithNodeMailer, sendEmailWithSendGrid } from "../utils/email.js";
+import {
+  sendEmailWithNodeMailerCustomer,
+  sendEmailWithNodeMailerAdmin} from "../utils/email.js";
 import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import config from "../config.js";
@@ -34,7 +36,7 @@ export const sendQuoteEmail = async (req, res) => {
       const defaultPassword = "Pa$$word1234";
       const hashedPassword = await bcrypt.hash(
         defaultPassword,
-        config.saltRounds
+        config.SALT_ROUNDS
       );
 
       user = new User({
@@ -51,7 +53,9 @@ export const sendQuoteEmail = async (req, res) => {
     await user.save();
 
     // Send email via Nodemailer
-    await sendEmailWithNodeMailer(email, subject, text, to);
+    await sendEmailWithNodeMailerCustomer(email, subject, text, to);
+    await sendEmailWithNodeMailerAdmin(email, subject, text);
+
 
     res.status(201).json({ message: "success" });
   } catch (error) {

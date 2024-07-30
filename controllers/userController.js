@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import User from "../models/User.js";
 import { generateApiKey, encrypt, decrypt } from "../utils/encryption.js";
-import "../config.js";
+import config from "../config.js";
 
 export const register = async (req, res) => {
   const { email, password, role, employeeRole, customerType, shop } = req.body;
@@ -11,8 +11,8 @@ export const register = async (req, res) => {
   }
 
   const hashedPassword = password
-    ? await bcrypt.hash(password, 10)
-    : await bcrypt.hash("Pa$$word1234", 10);
+    ? await bcrypt.hash(password, config.SALT_ROUNDS)
+    : await bcrypt.hash("Pa$$word1234", config.SALT_ROUNDS);
   const apiKey = await generateApiKey();
 
   const newUser = new User({
@@ -36,7 +36,7 @@ export const createShopOwner = async (req, res) => {
     return res.status(400).json({ message: "User already exists" });
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(password, config.SALT_ROUNDS);
   const apiKey = await generateApiKey();
 
   const newShopOwner = new User({
@@ -58,8 +58,8 @@ export const createCustomer = async (req, res) => {
   }
 
   const hashedPassword = password
-    ? await bcrypt.hash(password, 10)
-    : await bcrypt.hash("Pa$$word1234", 10);
+    ? await bcrypt.hash(password, config.SALT_ROUNDS)
+    : await bcrypt.hash("Pa$$word1234", config.SALT_ROUNDS);
   const apiKey = await generateApiKey();
 
   const newCustomer = new User({
@@ -82,7 +82,7 @@ export const createEmployee = async (req, res) => {
     return res.status(400).json({ message: "User already exists" });
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(password, config.SALT_ROUNDS);
   const apiKey = await generateApiKey();
 
   const newEmployee = new User({
