@@ -1,4 +1,3 @@
-.config.js
 # Logs
 logs
 *.log
@@ -79,7 +78,7 @@ web_modules/
 .env.test.local
 .env.production.local
 .env.local
-config.js
+
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
