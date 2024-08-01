@@ -35,6 +35,9 @@ app.use(cors(corsOptions));
 
 
   // Routes
+  app.get("/", (req, res) => {
+    res.send("API is running");
+  });
   app.use("/api/v1/auth", authRouter);
   app.use("/api/v1/users", userRouter);
   app.use("/api/v1/email", emailRouter);
