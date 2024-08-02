@@ -21,7 +21,11 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
-const whitelist = ["http://127.0.0.1:5173", "http://localhost:3000"];
+const whitelist = [
+  "http://127.0.0.1:5173",
+  "http://localhost:3000",
+  "my-garage-ed2e46b8c87b.herokuapp.com",
+];
 const corsOptions = (req, callback) => {
   let options;
   if (whitelist.includes(req.header("Origin"))) {
