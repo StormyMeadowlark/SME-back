@@ -12,7 +12,6 @@ export const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 export const FRONTEND_DOMAIN = process.env.FRONTEND_DOMAIN;
 export const SALT_ROUNDS = process.env.SALT_ROUNDS;
 export const SECRET_ACCESS_TOKEN = process.env.SECRET_ACCESS_TOKEN;
-export const PORT = process.env.PORT;
 export const URI = process.env.URI;
 export const SENDGRID_CONTACT_KEY = process.env.SENDGRID_CONTACT_KEY
 export default {
@@ -24,7 +23,6 @@ EMAIL_ADVISOR: process.env.EMAIL_ADVISOR,
 SENDGRID_CAREER_KEY: process.env.SENDGRID_CAREER_KEY,
 FRONTEND_DOMAIN: process.env.FRONTEND_DOMAIN,
 SALT_ROUNDS: process.env.SALT_ROUNDS,
-PORT: process.env.PORT,
 URI: process.env.URI,
 SENDGRID_CONTACT_KEY: process.env.SENDGRID_CONTACT_KEY,
 
