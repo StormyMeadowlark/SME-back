@@ -32,6 +32,9 @@
     "nodemonstart": "nodemon server.js",
     "dev": "DEBUG=SME-back:* npm run nodemonstart"
   },
+  "engines": {
+    "node": "20.12.2"
+  },
   "type": "module",
   "name": "sme-back",
   "description": "",
