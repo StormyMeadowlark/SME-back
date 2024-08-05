@@ -9,7 +9,7 @@ import emailRouter from "./routes/emailRoutes.js";
 import groupRouter from "./routes/groupRoutes.js";
 import dotenv from "dotenv";
 import { createApplication } from "./controllers/applicationController.js";
-import footerMapApiKeyRoutes from "./routes/footerMapApiKeyRoutes.js"
+import footerRouter from "./routes/footerMapApiKeyRoutes.js";
 
 // Load environment variables from .env file
 dotenv.config();
@@ -48,7 +48,7 @@ app.use(cors(corsOptions));
   app.use("/api/v1/email", emailRouter);
   app.use("/api/v1/groups", groupRouter);
   app.use("/api/v1/application", createApplication);
-  app.use("/api/v1/key/footer-map", footerMapApiKeyRoutes);
+  app.use("/api/v1/maps-api-key", footerRouter);
 
 // Handle connection errors
 
