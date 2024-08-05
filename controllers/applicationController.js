@@ -1,7 +1,7 @@
 // controllers/jobApplicationController.js
 import Application from "../models/Application.js";
 import nodemailer from "nodemailer";
-import { SENDGRID_CAREER_KEY } from "../config.js";
+import { SENDGRID_CAREER_KEY, EMAIL_ADVISOR } from "../config.js";
 
 // Configure SendGrid with NodeMailer
 const transporter = nodemailer.createTransport({
@@ -45,14 +45,14 @@ export const createApplication = async (req, res) => {
       from: "marketing@hemautomotive.com",
       to: email,
       subject: "Job Application Received",
-      text: `Dear ${name},\n\nThank you for applying for a position at our company. We will review your application and contact you soon.\n\nBest regards,\nCompany Name`,
+      text: `Hey ${name},\n\n Thanks for tossing your wrench into the HEM Automotive toolbox! We're excited to see if you're the perfect fit to keep our engines purring. We'll dive under the hood of your application & get back to you faster than a mechanic finding that "mystery noise."\n\nHEM Automotive Hiring Team`,
     });
 
     // Send notification email to the admin
     await transporter.sendMail({
       from: "marketing@hemautomotive.com",
-      to: "herken.ashlee@gmail.com",
-      subject: `${name} Submitted a Job Application`,
+      to: EMAIL_ADVISOR,
+      subject: `Job Application from ${name}`,
       text: `A new job application has been received from ${name}. \n \n Experience: ${experience} \n\n Skills: ${skills} \n\n Education: ${education} \n\n Job History: ${jobHistory} \n\n Expected Pay: ${expectedPay} \n\n Phone Number: ${phone} \n\n Email: ${email} \n\n`,
     });
 
