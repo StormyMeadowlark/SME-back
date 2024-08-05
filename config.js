@@ -14,6 +14,7 @@ export const SALT_ROUNDS = process.env.SALT_ROUNDS;
 export const SECRET_ACCESS_TOKEN = process.env.SECRET_ACCESS_TOKEN;
 export const URI = process.env.URI;
 export const SENDGRID_CONTACT_KEY = process.env.SENDGRID_CONTACT_KEY
+export const PORT = process.env.PORT || 5001
 export default {
  FOOTER_MAPS_API_KEY: process.env.FOOTER_MAPS_API_KEY,
 ENCRYPTION_KEY: process.env.ENCRYPTION_KEY,
@@ -25,5 +26,6 @@ FRONTEND_DOMAIN: process.env.FRONTEND_DOMAIN,
 SALT_ROUNDS: process.env.SALT_ROUNDS,
 URI: process.env.URI,
 SENDGRID_CONTACT_KEY: process.env.SENDGRID_CONTACT_KEY,
+PORT: process.env.PORT || 5001
 
 };
