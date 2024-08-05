@@ -23,7 +23,6 @@ export const createApplication = async (req, res) => {
     expectedPay,
     education,
     jobHistory,
-    labels,
   } = req.body;
 
   try {
@@ -36,8 +35,7 @@ export const createApplication = async (req, res) => {
       skills,
       expectedPay,
       education,
-      jobHistory,
-      labels,
+      jobHistory
     });
 
     await newApplication.save();
@@ -53,9 +51,9 @@ export const createApplication = async (req, res) => {
     // Send notification email to the admin
     await transporter.sendMail({
       from: "marketing@hemautomotive.com",
-      to: "admin@example.com",
-      subject: "New Job Application",
-      text: `A new job application has been received from ${name}. Please review the application in the admin panel.`,
+      to: "herken.ashlee@gmail.com",
+      subject: `${name} Submitted a Job Application`,
+      text: `A new job application has been received from ${name}. \n \n Experience: ${experience} \n\n Skills: ${skills} \n\n Education: ${education} \n\n Job History: ${jobHistory} \n\n Expected Pay: ${expectedPay} \n\n Phone Number: ${phone} \n\n Email: ${email} \n\n`,
     });
 
     res.status(200).json({ message: "Application submitted successfully!" });
