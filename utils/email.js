@@ -34,7 +34,7 @@ const sendEmailWithNodeMailerCustomer = async (to, subject, text) => {
 
 
 
-const sendEmailWithNodeMailerAdmin = async (subject, text) => {
+const sendEmailWithNodeMailerAdmin = async (to, subject, text) => {
   const transporter = nodemailer.createTransport({
     host: "smtp.sendgrid.net",
     port: 465,
