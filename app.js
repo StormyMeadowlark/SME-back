@@ -25,7 +25,8 @@ const whitelist = [
   "http://127.0.0.1:5173",
   "http://localhost:3000",
   "https://my-garage-ed2e46b8c87b.herokuapp.com",
-  "https://hemautomotive.com"
+  "https://hemautomotive.com",
+  "https://127.0.0.1:4173",
 ];
 const corsOptions = (req, callback) => {
   let options;
